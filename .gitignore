@@ -4,3 +4,5 @@ init
 *.der
 *.priv
 *.log
+bash-5.3/
+bash-*.gz
