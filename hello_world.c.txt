@@ -1,0 +1,26 @@
+#include <linux/module.h>    // Required for all kernel modules
+#include <linux/kernel.h>    // Required for the KERN_INFO macro
+#include <linux/init.h>      // Required for the module_init and module_exit macros
+
+// Module metadata
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Your Name");
+MODULE_DESCRIPTION("A simple Hello World kernel module");
+MODULE_VERSION("0.1");
+
+// The function that is called when the module is loaded
+static int __init hello_init(void) {
+    // printk is the kernel's version of printf
+    // KERN_INFO is a log level, similar to a severity level
+    printk(KERN_INFO "Hello, World! from kernel space\n");
+    return 0;
+}
+
+// The function that is called when the module is unloaded
+static void __exit hello_exit(void) {
+    printk(KERN_INFO "Goodbye, World! from kernel space\n");
+}
+
+// Register the init and exit functions with the kernel
+module_init(hello_init);
+module_exit(hello_exit);

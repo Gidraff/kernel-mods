@@ -1,0 +1,6 @@
+*.ko
+*.cpio
+init
+*.der
+*.priv
+*.log
